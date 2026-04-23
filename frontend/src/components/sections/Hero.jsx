@@ -30,23 +30,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden bg-[#06060A] pt-28 pb-20"
       data-testid="hero-section"
     >
-      {/* background video */}
-      <div className="absolute inset-0 opacity-[0.22]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover"
-        >
-          <source
-            src="https://cdn.pixabay.com/video/2023/11/05/187974-881867892_large.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06060A]/60 via-[#06060A]/75 to-[#06060A]" />
-      </div>
+      {/* background video removed — using pure dark + orbs for strongest anti-corporate vibe */}
 
       <div className="absolute inset-0 grid-bg opacity-30" />
 
