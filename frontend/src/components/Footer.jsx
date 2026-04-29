@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="font-editorial text-3xl md:text-4xl leading-[1.1] max-w-lg mb-8">
-              Dangerous thoughts. Unfair energies. Your people.
+              With Minnerva, its all about Creating New Possibilities
             </p>
             <Link to="/contact" className="btn-pill btn-pill--ember" data-testid="footer-cta">
               Start something unforgettable <span aria-hidden>→</span>
@@ -63,15 +63,16 @@ export default function Footer() {
           <div className="md:col-span-3">
             <div className="eyebrow mb-5">Get in touch</div>
             <a
-              href="mailto:hello@minnervainnov.com"
+              href="mailto:storm@minervainnov.com"
               className="block text-white text-lg mb-3 link-underline"
               data-testid="footer-email"
             >
-              hello@minnervainnov.com
+              storm@minervainnov.com
             </a>
             <p className="text-white/50 text-sm leading-relaxed">
-              R&D and Innovation partner to Fortune 500 FMCG leaders.
-              Oral Care · Personal Care · Laundry · Dishwash.
+                  D2-1501, The Meadows, Adani Shantigram
+                 <br></br> Near Adani Corporate House
+                  <br></br>Ahmedabad, 382 421
             </p>
           </div>
         </div>

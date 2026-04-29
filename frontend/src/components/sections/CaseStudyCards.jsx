@@ -6,7 +6,8 @@ export default function CaseStudyCards() {
   return (
     <section
       id="stories"
-      className="relative bg-[#06060A] py-28 md:py-36 overflow-hidden"
+      // Changed overflow-hidden to overflow-x-clip
+      className="relative bg-[#06060A] py-28 md:py-36 overflow-x-clip"
       data-testid="case-studies-section"
     >
       <div className="absolute top-0 right-0 w-[700px] h-[700px] orb orb--red opacity-30" />
@@ -16,7 +17,10 @@ export default function CaseStudyCards() {
             <div className="eyebrow mb-4">Case Studies</div>
             <h2 className="display-xl">Stories that matter…</h2>
             <p className="font-editorial text-xl md:text-2xl text-white/70 mt-4 max-w-2xl">
-              Dangerous questions. Decision-ready answers. Real rooms, real stakes.
+              This is where ambitious briefs and daunting
+                questions/situations are answered….
+                  <br></br><br></br>
+                Real rooms, Real stakes….
             </p>
           </div>
           <div className="text-white/40 text-sm uppercase tracking-[0.25em]">

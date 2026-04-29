@@ -62,7 +62,7 @@ export default function CaseStudyPage() {
       )}
 
       {cs.youtubeShort && (
-        <Section eyebrow="Watch" title="In 30 seconds">
+        <Section eyebrow="Watch" title="Watch a 30 sec preview">
           <div className="aspect-video max-w-3xl rounded-2xl overflow-hidden border border-line">
             <iframe
               className="w-full h-full"
@@ -77,17 +77,35 @@ export default function CaseStudyPage() {
 
       {cs.goals && (
         <Section eyebrow="Director's goals" title="What she wanted">
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl">
-            {cs.goals.map((g, i) => (
-              <li
-                key={i}
-                className="flex gap-4 p-6 rounded-2xl border border-line bg-white/[0.02]"
-              >
-                <span className="font-display text-3xl text-lime">0{i + 1}</span>
-                <span className="text-lg text-white/85">{g}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+            
+            {/* Left Side: The Goals Cards */}
+            <div className="lg:col-span-2">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {cs.goals.map((g, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-4 p-6 rounded-2xl border border-line bg-white/[0.02]"
+                  >
+                    <span className="font-display text-3xl text-lime">0{i + 1}</span>
+                    <span className="text-lg text-white/85">{g}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Side: The Image */}
+            <div className="lg:col-span-1 flex justify-center lg:justify-end mt-8 lg:mt-12">
+              <div className="w-full max-w-[260px] aspect-[3/4] rounded-[50%] border border-line bg-white/[0.02] flex items-center justify-center overflow-hidden relative shadow-lg">
+                <img 
+                  src="/images/No_Nonsense_Director_02.png" 
+                  alt="Director Silhouette" 
+                  className="w-full h-full object-cover opacity-90 relative z-10 translate-y-6 scale-125"
+                />
+              </div>
+            </div>
+
+          </div>
         </Section>
       )}
 
@@ -156,10 +174,13 @@ export default function CaseStudyPage() {
         </Section>
       )}
 
-      {cs.stakes && (
+     {cs.stakes && (
         <Section eyebrow="The Stakes" title="What was at risk?">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-            <div className="space-y-5">
+          {/* UPDATED: Changed from md:grid-cols-2 to a 12-column grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Side: Text Cards (Now takes up 7 columns for more breathing room) */}
+            <div className="lg:col-span-7 space-y-5">
               {cs.stakes.map((s, i) => (
                 <div
                   key={i}
@@ -172,29 +193,34 @@ export default function CaseStudyPage() {
                 </div>
               ))}
             </div>
-            {cs.stakesImg && (
-              <img
-                src={cs.stakesImg}
-                alt=""
-                className="w-full rounded-2xl border border-line object-cover"
-              />
-            )}
+
+            {/* Right Side: The Image (Now takes up 5 columns) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              {cs.stakesImg && (
+                <img
+                  src={cs.stakesImg}
+                  alt=""
+                  /* UPDATED: Added max-w-[450px] to restrict how large the image can get */
+                  className="w-full max-w-[450px] rounded-2xl border border-line object-cover"
+                />
+              )}
+            </div>
+
           </div>
         </Section>
       )}
-
       {cs.objectives && (
         <Section eyebrow="Key Objectives" title="The marching orders">
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
             {cs.objectives.map((o, i) => (
               <li
                 key={i}
-                className="flex gap-4 p-6 rounded-2xl border border-line bg-white/[0.02] hover:border-white/20 transition"
+                className="flex items-center gap-5 p-7 rounded-2xl border border-line bg-[#0D0D14]/50 backdrop-blur-sm hover:border-white/20 hover:bg-white/[0.04] hover:-translate-y-1 transition-all duration-300 shadow-lg"
               >
-                <span className="font-display text-3xl" style={{ color: stripColor }}>
+                <span className="font-display text-4xl md:text-5xl" style={{ color: stripColor }}>
                   0{i + 1}
                 </span>
-                <span className="text-lg text-white/85">{o}</span>
+                <span className="text-lg md:text-xl text-white/90 leading-snug">{o}</span>
               </li>
             ))}
           </ul>
@@ -241,7 +267,7 @@ export default function CaseStudyPage() {
             )}
             <div className="space-y-5">
               <p className="font-editorial text-xl text-white/70 italic">
-                We can't talk much but… beyond what was promised, the team was able to:
+                We can't talk much but… beyond what was promised, the team:
               </p>
               {cs.outcomes.map((o, i) => (
                 <div
@@ -262,38 +288,64 @@ export default function CaseStudyPage() {
 
       {cs.whatElse && (
         <Section eyebrow="What Else?" title="The ripple effect">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-            {cs.whatElseImg && (
-              <img
-                src={cs.whatElseImg}
-                alt=""
-                className="rounded-2xl border border-line object-cover"
-              />
-            )}
-            <ul className="space-y-5">
-              {cs.whatElse.map((w, i) => (
-                <li
-                  key={i}
-                  className="flex gap-4 p-5 rounded-xl bg-white/[0.02]"
-                >
-                  <span className="font-display text-2xl text-ember">→</span>
-                  <span className="text-lg text-white/85">{w}</span>
-                </li>
-              ))}
-            </ul>
+          {/* UPDATED: Changed to a 12-column grid to control the exact width proportions */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Side: The Image (Now takes up 5 columns instead of half) */}
+            <div className="lg:col-span-5 flex justify-start">
+              {cs.whatElseImg && (
+                <img
+                  src={cs.whatElseImg}
+                  alt=""
+                  /* UPDATED: Added width controls to forcefully shrink the image */
+                  className="w-full max-w-[400px] rounded-2xl border border-line object-cover"
+                />
+              )}
+            </div>
+
+            {/* Right Side: The List (Now takes up 7 columns, giving it more room) */}
+            <div className="lg:col-span-7">
+              <ul className="space-y-5">
+                {cs.whatElse.map((w, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-4 p-5 rounded-xl bg-white/[0.02]"
+                  >
+                    <span className="font-display text-2xl text-ember">→</span>
+                    <span className="text-lg text-white/85">{w}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
           </div>
         </Section>
       )}
-
       {cs.quote && (
         <section className="relative bg-white text-[#06060A] py-24 overflow-hidden" data-testid="case-quote">
           <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
-            <div className="font-display text-[120px] leading-none text-ember mb-4">"</div>
-            <blockquote className="font-editorial text-3xl md:text-5xl leading-[1.1] max-w-5xl">
-              {cs.quote}
-            </blockquote>
-            <div className="mt-10 uppercase tracking-[0.25em] text-sm">
-              — {cs.quoteBy}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              
+              {/* Left Side: The Quote */}
+              <div className="lg:col-span-8">
+                <div className="font-display text-[120px] leading-none text-ember mb-4">"</div>
+                <blockquote className="font-editorial text-3xl md:text-5xl leading-[1.1] max-w-4xl">
+                  {cs.quote}
+                </blockquote>
+                <div className="mt-10 uppercase tracking-[0.25em] text-sm">
+                  — {cs.quoteBy}
+                </div>
+              </div>
+
+              {/* Right Side: The Building Image */}
+              <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                <img 
+                  src="/images/BG_Case_2OC.png" 
+                  alt="Building Graphic" 
+                  className="w-full max-w-[250px] h-auto object-contain"
+                />
+              </div>
+
             </div>
           </div>
         </section>
@@ -301,22 +353,31 @@ export default function CaseStudyPage() {
 
       {cs.trivia && (
         <Section eyebrow="Trivia" title={cs.trivia.heading} darker>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="font-display text-5xl md:text-7xl text-lime leading-none mb-5">
+          {/* UPDATED: Changed grid to give the image slightly more room (5 columns for text, 7 for image) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Side: Text Content */}
+            <div className="lg:col-span-5 text-center lg:text-left">
+              <div className="font-display text-5xl md:text-6xl lg:text-[80px] text-lime leading-[0.95] mb-6 uppercase">
                 {cs.trivia.main}
               </div>
-              <p className="text-white/60 max-w-md">
-                Context for the room — so the numbers land before the next slide.
+              <p className="text-white/60 max-w-md font-editorial text-xl mx-auto lg:mx-0">
+                
               </p>
             </div>
-            {cs.trivia.img && (
-              <img
-                src={cs.trivia.img}
-                alt=""
-                className="rounded-2xl border border-line"
-              />
-            )}
+
+            {/* Right Side: Tablet Image */}
+            <div className="lg:col-span-7 flex justify-center lg:justify-end">
+              {cs.trivia.img && (
+                <img
+                  src={cs.trivia.img}
+                  alt="Trivia Graphic"
+                  /* UPDATED: Removed the inline style restriction completely so 'w-full' can make it massive! */
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
+              )}
+            </div>
+
           </div>
         </Section>
       )}
@@ -332,7 +393,7 @@ export default function CaseStudyPage() {
             className="rounded-3xl border border-line bg-gradient-to-br from-white/[0.04] to-transparent p-10 md:p-16 text-center"
           >
             <div className="eyebrow mb-4">What's next</div>
-            <h3 className="display-lg mb-6">Got a dangerous question?</h3>
+            <h3 className="display-lg mb-6">Got a ambitious question?</h3>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contact" className="btn-pill btn-pill--lime" data-testid="case-cta-talk">
                 Let's Talk →
@@ -352,6 +413,7 @@ export default function CaseStudyPage() {
   );
 }
 
+// UPDATED: Section component with larger text sizes for eyebrow and title
 function Section({ eyebrow, title, children, darker = false }) {
   return (
     <section className={`relative py-20 md:py-24 ${darker ? "bg-[#0a0a12]" : ""}`}>
@@ -362,8 +424,8 @@ function Section({ eyebrow, title, children, darker = false }) {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="eyebrow mb-3">{eyebrow}</div>
-          <h2 className="display-lg mb-10">{title}</h2>
+          <div className="eyebrow mb-4 text-sm md:text-base tracking-[0.3em] font-bold">{eyebrow}</div>
+          <h2 className="display-xl md:display-xxl mb-12 uppercase leading-[0.95] tracking-tight">{title}</h2>
           {children}
         </motion.div>
       </div>

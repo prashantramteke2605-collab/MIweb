@@ -25,13 +25,17 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", h);
   }, [mx, my]);
 
+  // Added function to handle the scroll action
+  const handleScrollDown = () => {
+    window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+  };
+
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#06060A] pt-28 pb-20"
+      // Changed overflow-hidden to overflow-x-clip to permit vertical scrolling while hiding horizontal orb overflow
+      className="relative min-h-screen flex items-center overflow-x-clip bg-[#06060A] pt-28 pb-20"
       data-testid="hero-section"
     >
-      {/* background video removed — using pure dark + orbs for strongest anti-corporate vibe */}
-
       <div className="absolute inset-0 grid-bg opacity-30" />
 
       <motion.div
@@ -82,25 +86,15 @@ export default function Hero() {
             <HeroCta key={c.id} cta={c} index={i} />
           ))}
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-14 flex flex-wrap gap-8 items-center text-white/50 text-xs uppercase tracking-[0.2em]"
-          data-testid="hero-meta"
-        >
-          <span>Fortune 500 FMCG</span>
-          <span className="w-1 h-1 bg-lime rounded-full" />
-          <span>80+ Projects</span>
-          <span className="w-1 h-1 bg-lime rounded-full" />
-          <span>5 Years In</span>
-          <span className="w-1 h-1 bg-lime rounded-full" />
-          <span>Oral · Personal · Laundry · Dish</span>
-        </motion.div>
       </div>
 
-      <div className="scroll-indicator">Scroll</div>
+      {/* Added onClick, cursor-pointer, and relative z-20 to ensure it isn't blocked by the orbs */}
+      <div 
+        className="scroll-indicator cursor-pointer relative z-20"
+        onClick={handleScrollDown}
+      >
+        Scroll
+      </div>
     </section>
   );
 }

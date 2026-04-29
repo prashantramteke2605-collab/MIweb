@@ -63,11 +63,11 @@ export const CASE_STUDIES = [
     quote:
       "Prashant, what she (Director) said for you guys in the room is going to echo for a long time in the Company.",
     quoteBy: "Project Manager",
-    trivia: {
-      heading: "P&G and R&D Investments",
-      main: "$5.4mn / day in R&D",
-      img: "/images/Trivia_1.png",
-    },
+   trivia: {
+      heading: "BEAUTY R&D REACH",
+      main: "Do you know L'Oreal has over 320,000 healthcare professionals in its network.....",
+      img: "/images/Trivia_1.png" 
+    }
   },
   {
     slug: "million-dollar-smiles",
@@ -120,7 +120,7 @@ export const CASE_STUDIES = [
     quoteBy: "Sr. R&D Manager",
     trivia: {
       heading: "Beauty R&D reach",
-      main: "L'Oreal's network — 250,000+ HCPs worldwide",
+      main: "L'Oreal's network — 320,000+ HCPs worldwide",
       img: "/images/Trivia_2.png",
     },
   },
@@ -176,8 +176,8 @@ export const CASE_STUDIES = [
     quoteBy: "VP — International Business",
     trivia: {
       heading: "Formulation firepower",
-      main: "3,700 formulation launches a year across the top 10 FMCG",
-      img: "/images/Trivia_1.png",
+      main: "Do you know L'Oréal has screened over 40,000 formulas across 143 categories",
+      img: "/images/Trivia_2.png",
     },
   },
 ];
@@ -406,8 +406,8 @@ export const STAKEHOLDERS = [
 
 export const MARQUEE_MAIN = [
   "P&G spends $5.4mn / day in R&D",
-  "L'Oreal has 250,000+ HCPs in its network",
-  "3,700 formulation launches a year",
+  "Do you know L'Oreal has over 320,000 healthcare professionals in its network.....",
+  "L'Oréal has screened over 40,000 formulas across 143 categories.",
   "Unilever files ~250 patents a year",
   "80+ Fortune 500 projects delivered",
 ];
@@ -415,8 +415,6 @@ export const MARQUEE_MAIN = [
 export const MARQUEE_SERVICES = [
   "IP Landscape",
   "Claims Taxonomy",
-  "Premiumization",
-  "Techs",
   "Patent Analysis",
   "Scouting Capabilities",
   "Non-Patent Literature",
@@ -426,12 +424,12 @@ export const MARQUEE_SERVICES = [
 ];
 
 export const QUIP_1 =
-  "Each of these exists because someone had a dangerous question — and needed a dangerous answer. Right there.";
+  "Each of these services are extensively put to test by companies serving in over 180 markets.";
 
-export const QUIP_2 = "Trusted by teams who can't afford to guess.";
+export const QUIP_2 = "Each of these Client reactions are earned either after delivering on ambitious briefs Or When the heroes have delivered something incredible to their team";
 
 export const CONTACT = {
-  email: "hello@minnervainnov.com",
+  email: "storm@minervainnov.com",
   headline: "Let's build something dangerous.",
   body: "Ready to move beyond the predictable? We thrive on challenging the status quo and crafting innovations that make waves. If you're looking for a partner with the energy, expertise and audacious spirit to bring your most ambitious ideas to life — you've found us.",
 };
