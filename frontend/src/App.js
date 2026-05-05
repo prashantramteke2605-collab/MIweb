@@ -1,14 +1,19 @@
-import "@/App.css";
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from "sonner";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import NoiseOverlay from "@/components/NoiseOverlay";
+
 import HomePage from "@/pages/HomePage";
 import CaseStudyPage from "@/pages/CaseStudyPage";
 import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from "@/pages/ContactPage";
+
+import "@/App.css";
 
 function App() {
   return (
@@ -17,6 +22,7 @@ function App() {
         <CustomCursor />
         <NoiseOverlay />
         <Navbar />
+        
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -25,7 +31,9 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
+        
         <Footer />
+        
         <Toaster
           position="bottom-center"
           theme="dark"
@@ -38,6 +46,9 @@ function App() {
           }}
         />
       </BrowserRouter>
+      
+      {/* Vercel Web Analytics Component */}
+      <Analytics />
     </div>
   );
 }
